@@ -13,12 +13,9 @@ module.exports = function(app) {
   
   // 文件列表API代理
   app.use(
-    '/api/files',
+    '/api',
     createProxyMiddleware({
-      target: 'http://localhost:3000',
-      pathRewrite: {
-        '^/api/files': '/public/examples'
-      },
+      target: 'http://120.48.27.201:7001',
       onProxyReq: (proxyReq) => {
         proxyReq.setHeader('Content-Disposition', 'attachment');
       }

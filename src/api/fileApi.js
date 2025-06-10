@@ -11,7 +11,7 @@ export const uploadFile = async (file) => {
     const currentUser = authService.getCurrentUser();
     const isAdmin = currentUser?.role === 'admin'||currentUser?.username==='cxy14';
     
-    const response = await axios.post(`${API_BASE}/api/upload`, formData, {
+    const response = await axios.post(`${API_BASE}/api/files/upload`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data',
         'x-is-admin': isAdmin,
